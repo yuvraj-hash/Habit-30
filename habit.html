@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Reboot Challenge</title>
+<style>
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --accent-color: #ff006e;
+    --success-color: #38b000;
+    --warning-color: #ffbe0b;
+    --danger-color: #d90429;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    --text-dark: #343a40;
+    --text-light: #f8f9fa;
+    --gray-light: #e9ecef;
+    --gray-medium: #ced4da;
+    --gray-dark: #6c757d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    gap: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    color: var(--text-dark);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+}
+
+.btn i {
+    margin-right: 0.25rem;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Header & Navigation */
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.dark-mode header {
+    background-color: #2c3e50;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dark-mode .logo {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.dark-mode .nav-links a {
+    color: var(--text-light);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f3f0ff;
+    color: brown;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.dark-mode .sidebar {
+    background-color: #2c3e50;
+}
+
+.progress-container {
+    margin-bottom: 1.5rem;
+}
+
+.progress-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: var(--gray-light);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.dark-mode .stat-card {
+    background-color: #34495e;
+}
+
+.stat-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.dark-mode .stat-card h3 {
+    color: var(--primary-color);
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: var(--gray-dark);
+}
+
+.dark-mode .stat-card p {
+    color: var(--gray-medium);
+}
+
+.timer-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    color: var(--secondary-color);
+}
+
+.dark-mode .timer-display {
+    color: var(--secondary-color);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.timer-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.start-btn {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.pause-btn {
+    background-color: var(--warning-color);
+    color: var(--text-dark);
+}
+
+.reset-btn {
+    background-color: var(--gray-medium);
+    color: var(--text-dark);
+}
+
+.motivation {
+    text-align: center;
+}
+
+.quote {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.author {
+    font-weight: 500;
+    color: var(--gray-dark);
+}
+
+.dark-mode .author {
+    color: var(--gray-medium);
+}
+
+/* Content */
+.content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.dark-mode .content {
+    background-color: #2c3e50;
+}
+
+.week-tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.week-tab {
+    padding: 0.5rem 1rem;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.dark-mode .week-tab {
+    background-color: #34495e;
+}
+
+.week-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.week-content {
+    display: none;
+}
+
+.week-content.active {
+    display: block;
+}
+
+.task-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.dark-mode .task-item {
+    background-color: #34495e;
+}
+
+.task-checkbox {
+    margin-right: 1rem;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+}
+
+/* Calendar Section */
+.calendar-section {
+    margin: 2rem 0;
+}
+
+.calendar {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.dark-mode .calendar {
+    background-color: #2c3e50;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-nav button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.calendar-nav button:hover {
+    color: var(--secondary-color);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.weekday-header {
+    text-align: center;
+    font-weight: 500;
+    color: var(--gray-dark);
+}
+
+.dark-mode .weekday-header {
+    color: var(--gray-medium);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.calendar-day:hover {
+    background-color: var(--gray-light);
+}
+
+.dark-mode .calendar-day:hover {
+    background-color: #34495e;
+}
+
+.calendar-day.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendar-day.completed::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+}
+
+.calendar-day.empty {
+    cursor: default;
+}
+
+/* Journal */
+.journal {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.dark-mode .journal {
+    background-color: #2c3e50;
+}
+
+.empty-journal {
+    text-align: center;
+    color: var(--gray-dark);
+    margin: 2rem 0;
+}
+
+.dark-mode .empty-journal {
+    color: var(--gray-medium);
+}
+
+.journal-form {
+    margin-top: 1.5rem;
+}
+
+#journal-text {
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    resize: vertical;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.dark-mode #journal-text {
+    background-color: #34495e;
+    color: var(--text-light);
+    border-color: #4a6583;
+}
+
+#journal-text:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+}
+
+.journal-entry {
+    background-color: var(--gray-light);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.dark-mode .journal-entry {
+    background-color: #34495e;
+}
+
+.entry-date {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    margin-bottom: 0.5rem;
+}
+
+.dark-mode .entry-date {
+    color: var(--gray-medium);
+}
+
+.entry-content {
+    white-space: pre-wrap;
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.dark-mode .feature-card {
+    background-color: #2c3e50;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Relapse Plan */
+.relapse-plan {
+    margin: 2rem 0;
+}
+
+.relapse-plan h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.relapse-plan .feature-card {
+    text-align: left;
+}
+
+.relapse-plan .btn {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: var(--gray-medium);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray-dark);
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    width: 95%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.dark-mode .modal-content {
+    background-color: #2c3e50;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--danger-color);
+}
+
+.modal-title {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.dark-mode .modal-title {
+    border-color: #4a6583;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-medium);
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.modal-form {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: #34495e;
+    color: var(--text-light);
+    border-color: #4a6583;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.emergency-tips {
+    margin-top: 1rem;
+}
+
+.emergency-tips ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.emergency-tips li {
+    margin-bottom: 0.5rem;
+}
+
+/* Smaller and centered emergency container */
+.relapse-plan .feature-card {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* this makes the button align left inside */
+}
+
+#emergency-btn {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    float: left;
+    margin-top: 0.01rem;
+    margin-bottom: 0.1rem;
+}
+
+
+.emergency-tips p {
+    margin: 1rem 0;
+    font-style: italic;
+}
+
+.learn-more-content {
+    margin-top: 1rem;
+}
+
+.learn-more-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.learn-more-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.learn-more-content li {
+    margin-bottom: 0.5rem;
+}
+
+.learn-more-content p {
+    margin-bottom: 0.75rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        order: 2;
+    }
+    
+    .content {
+        order: 1;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+    
+    .dark-mode .nav-links.active {
+        background-color: #2c3e50;
+    }
+    
+    .nav-links.active li {
+        margin: 0.75rem 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
+</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    30-Day Reboot
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#journal">Journal</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#" id="settings-btn">Settings</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your 30-Day Reboot Challenge</h1>
+            <p>Break free from unwanted habits, regain your focus, and rebuild your confidence with this proven 30-day action plan.</p>
+            <div class="hero-buttons">
+                <button class="btn pulse-animation" id="start-challenge-btn">Start Challenge</button>
+                <button class="btn btn-secondary" id="learn-more-btn">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container" id="dashboard">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="progress-container">
+                    <div class="progress-title">
+                        <span>Progress</span>
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3 id="days-completed">0</h3>
+                        <p>Days Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="tasks-completed">0</h3>
+                        <p>Tasks Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="current-streak">0</h3>
+                        <p>Current Streak</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="days-remaining">30</h3>
+                        <p>Days Remaining</p>
+                    </div>
+                </div>
+
+<br>
+
+                <div class="timer-container">
+                    <h3>Pomodoro Timer</h3>
+                    <div class="timer-display" id="timer-display">25:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn start-btn" id="start-timer">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button class="timer-btn pause-btn" id="pause-timer">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button class="timer-btn reset-btn" id="reset-timer">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+<br>
+
+                <div class="motivation">
+                    <h3>Daily Motivation</h3>
+                    <p class="quote" id="daily-quote">"The secret of change is to focus all of your energy, not on fighting the old, but on building the new."</p>
+                    <p class="author" id="quote-author">- Socrates</p>
+                </div>
+            </aside>
+
+            <div class="content">
+                <div class="week-tabs">
+                    <div class="week-tab active" data-week="1">Week 1</div>
+                    <div class="week-tab" data-week="2">Week 2</div>
+                    <div class="week-tab" data-week="3">Week 3</div>
+                    <div class="week-tab" data-week="4">Week 4</div>
+                </div>
+
+                <div class="week-content active" id="week-1">
+                    <h2>Week 1: Shock the System (Days 1-7)</h2>
+                    <p>The first week is about breaking the pattern and creating new habits. Focus on eliminating triggers and building a foundation for success.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="1">
+                            <span class="task-text">Take a cold shower first thing in the morning.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="2">
+                            <span class="task-text">Write 3 reasons why you want to quit this habit.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="3">
+                            <span class="task-text">Go for a 15-minute walk in the morning sunlight.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="4">
+                            <span class="task-text">Delete access to adult content (apps, browsers, etc).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="5">
+                            <span class="task-text">Install content blockers like BlockSite or Cold Turkey.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="6">
+                            <span class="task-text">Journal your triggers and emotional state every evening.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="7">
+                            <span class="task-text">Sleep early, no screens after 9PM.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="8">
+                            <span class="task-text">Say aloud: "I control my urges. I create, I don't consume."</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="1" data-task="9">
+                            <span class="task-text">Listen to or read 'Atomic Habits' by James Clear.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="week-content" id="week-2">
+                    <h2>Week 2: Redirection (Days 8-14)</h2>
+                    <p>This week is about redirecting your energy into productive activities and building on your momentum.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="2" data-task="1">
+                            <span class="task-text">Use the 5-5-5 routine when urges hit (5 pushups, 5 breaths, 5 min of a new activity).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="2" data-task="2">
+                            <span class="task-text">Replace screen time with skill learning (YouTube, Udemy, Duolingo).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="2" data-task="3">
+                            <span class="task-text">Complete 3 Pomodoro (25-min) sessions of focused work.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="2" data-task="4">
+                            <span class="task-text">Journal one positive win from the day.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="2" data-task="5">
+                            <span class="task-text">Continue morning walk, journaling, and cold shower.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="week-content" id="week-3">
+                    <h2>Week 3: Rebuild Self-Worth (Days 15-21)</h2>
+                    <p>Focus on rebuilding your self-worth and confidence through meaningful activities and connections.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="3" data-task="1">
+                            <span class="task-text">Do 1 hour of deep creative work (code, write, design, etc).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="3" data-task="2">
+                            <span class="task-text">Talk to one new person each day (in person or online).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="3" data-task="3">
+                            <span class="task-text">Exercise for 20-30 minutes (walk, gym, run, etc).</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="3" data-task="4">
+                            <span class="task-text">Reflect at night: 'How did I act like the person I want to become today?'</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="3" data-task="5">
+                            <span class="task-text">Maintain streaks: journaling, exercise, learning.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="week-content" id="week-4">
+                    <h2>Week 4: Lock In the Upgrade (Days 22-30)</h2>
+                    <p>The final week is about cementing your new habits and preparing for long-term success.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="4" data-task="1">
+                            <span class="task-text">Meditate 10 minutes using an app like Headspace or Insight Timer.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="4" data-task="2">
+                            <span class="task-text">Share your journey or mentor someone else.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="4" data-task="3">
+                            <span class="task-text">Keep all habit streaks alive: fitness, journal, creative work.</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="4" data-task="4">
+                            <span class="task-text">Say this daily: 'I'm not escaping. I'm building. I've reclaimed my power.'</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" class="task-checkbox" data-week="4" data-task="5">
+                            <span class="task-text">Set a visual cue (phone wallpaper/lockscreen) to keep you motivated.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="calendar-section">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <h2 id="calendar-month">May 2025</h2>
+                    <div class="calendar-nav">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="calendar-weekdays">
+                    <div class="weekday-header">Sun</div>
+                    <div class="weekday-header">Mon</div>
+                    <div class="weekday-header">Tue</div>
+                    <div class="weekday-header">Wed</div>
+                    <div class="weekday-header">Thu</div>
+                    <div class="weekday-header">Fri</div>
+                    <div class="weekday-header">Sat</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Calendar days will be generated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="journal" id="journal">
+            <h2>Daily Journal</h2>
+            <div id="journal-entries">
+                <!-- Journal entries will be added here dynamically -->
+                <p class="empty-journal">No journal entries yet. Start reflecting on your journey!</p>
+            </div>
+            <div class="journal-form">
+                <textarea id="journal-text" placeholder="Reflect on your day. What were your triggers? How did you overcome them? What are you proud of today?"></textarea>
+                <button class="btn" id="save-journal"><i class="fas fa-save"></i> Save Entry</button>
+            </div>
+        </div>
+
+        <section class="features" id="resources">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Rewire Your Brain</h3>
+                <p>Neuroplasticity allows your brain to form new neural pathways. This 30-day challenge helps you create healthier patterns and break unwanted habits permanently.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Build Mental Strength</h3>
+                <p>Like physical exercise, mental discipline grows stronger with consistent practice. Each day's tasks build your willpower and self-control.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Track Your Progress</h3>
+                <p>Visualize your journey with daily check-ins, progress tracking, and reflections. See how far you've come and stay motivated.</p>
+            </div>
+        </section>
+
+        <div class="relapse-plan">
+            <h2>If You Relapse — Don't Quit</h2>
+            <div class="feature-card">
+                <p>You didn't fall back to zero. You learned. Analyze the trigger. Get up. Move forward. This isn't about shame. It's about direction. By Day 30, you'll be sharper, stronger, and fully in control of your energy and focus.</p>
+                <button class="btn btn-accent" id="emergency-btn"><i class="fas fa-heartbeat"></i> Emergency Motivation</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="community">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>30-Day Reboot</h3>
+                    <p>Breaking habits. Building strength. Reclaiming control.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-reddit"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Science & Research</a></li>
+                        <li><a href="#">Community Support</a></li>
+                        <li><a href="#">Recommended Books</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 30-Day Reboot Challenge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-settings">&times;</span>
+            <h2 class="modal-title">Settings</h2>
+            <div class="settings-item">
+                <p>Dark Mode</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="settings-item">
+                <p>Notifications</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="notifications-toggle" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="settings-item">
+                <p>Daily Reminders</p>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="reminders-toggle" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="settings-item">
+                <p>Reset All Progress</p>
+                <button class="btn btn-danger" id="reset-progress-btn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="start-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-start">&times;</span>
+            <h2 class="modal-title">Start Your 30-Day Challenge</h2>
+            <p>This challenge will help you break unwanted habits and rebuild focus and confidence. Ready to commit to 30 days of change?</p>
+            <div class="modal-form">
+                <div class="form-group">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" value="2025-05-07">
+                </div>
+                <div class="form-group">
+                    <label for="commitment">Your Commitment</label>
+                    <textarea id="commitment" placeholder="Why are you starting this challenge? What do you hope to achieve?"></textarea>
+                </div>
+                <button class="btn btn-accent" id="confirm-start">Begin My Journey</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="emergency-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-emergency">&times;</span>
+            <h2 class="modal-title">Emergency Motivation</h2>
+            <p>You're stronger than your urges. Remember why you started this journey.</p>
+            <div class="emergency-tips">
+                <h3>Do This Now:</h3>
+                <ul>
+                    <li>Take 10 deep breaths</li>
+                    <li>Drink a glass of water</li>
+                    <li>Go for a quick walk outside</li>
+                    <li>Call a friend or family member</li>
+                    <li>Do 20 pushups or jumping jacks</li>
+                </ul>
+                <h3>Remember:</h3>
+                <p>"This urge is temporary, but the regret will last longer. Your future self is watching your choices right now."</p>
+                <button class="btn" id="emergency-done">I Got This</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="learn-more-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-learn-more">&times;</span>
+            <h2 class="modal-title">About The 30-Day Reboot Challenge</h2>
+            <div class="learn-more-content">
+                <h3>Why This Challenge Works</h3>
+                <p>The 30-Day Reboot Challenge is designed based on principles of habit formation, neuroplasticity, and behavioral psychology. By following a structured approach over 30 days, you can effectively break unwanted habits and replace them with positive behaviors.</p>
+                
+                <h3>The Science Behind It</h3>
+                <p>Research suggests that it takes approximately 21-30 days to form a new habit. This challenge leverages that timeframe by providing daily tasks that gradually build momentum and create lasting change.</p>
+                
+                <h3>The Four Phases</h3>
+                <ul>
+                    <li><strong>Week 1: Shock the System</strong> - Breaking patterns and eliminating triggers</li>
+                    <li><strong>Week 2: Redirection</strong> - Channeling energy into productive activities</li>
+                    <li><strong>Week 3: Rebuild Self-Worth</strong> - Developing confidence through achievements</li>
+                    <li><strong>Week 4: Lock In the Upgrade</strong> - Cementing new habits for long-term success</li>
+                </ul>
+                
+                <h3>Success Stories</h3>
+                <p>Thousands of people have completed this challenge and reported significant improvements in focus, productivity, and overall well-being. Many have successfully broken free from unwanted habits and addictions.</p>
+                
+                <h3>Ready to Begin?</h3>
+                <p>Click the "Start Challenge" button to begin your 30-day journey to a better you.</p>
+                
+                <button class="btn btn-accent" id="learn-more-start">Start My Challenge Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+// DOM Elements
+const settingsBtn = document.getElementById('settings-btn');
+const settingsModal = document.getElementById('settings-modal');
+const closeSettings = document.getElementById('close-settings');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const notificationsToggle = document.getElementById('notifications-toggle');
+const remindersToggle = document.getElementById('reminders-toggle');
+const resetProgressBtn = document.getElementById('reset-progress-btn');
+
+const startChallengeBtn = document.getElementById('start-challenge-btn');
+const startModal = document.getElementById('start-modal');
+const closeStart = document.getElementById('close-start');
+const confirmStartBtn = document.getElementById('confirm-start');
+
+const emergencyBtn = document.getElementById('emergency-btn');
+const emergencyModal = document.getElementById('emergency-modal');
+const closeEmergency = document.getElementById('close-emergency');
+const emergencyDoneBtn = document.getElementById('emergency-done');
+
+const learnMoreBtn = document.getElementById('learn-more-btn');
+const learnMoreModal = document.getElementById('learn-more-modal');
+const closeLearnMore = document.getElementById('close-learn-more');
+const learnMoreStartBtn = document.getElementById('learn-more-start');
+
+const weekTabs = document.querySelectorAll('.week-tab');
+const weekContents = document.querySelectorAll('.week-content');
+
+const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+const progressFill = document.getElementById('progress-fill');
+const progressPercentage = document.getElementById('progress-percentage');
+const daysCompletedEl = document.getElementById('days-completed');
+const tasksCompletedEl = document.getElementById('tasks-completed');
+const currentStreakEl = document.getElementById('current-streak');
+const daysRemainingEl = document.getElementById('days-remaining');
+
+const journalText = document.getElementById('journal-text');
+const saveJournalBtn = document.getElementById('save-journal');
+const journalEntries = document.getElementById('journal-entries');
+
+const prevMonthBtn = document.getElementById('prev-month');
+const nextMonthBtn = document.getElementById('next-month');
+const calendarMonth = document.getElementById('calendar-month');
+const calendarGrid = document.getElementById('calendar-grid');
+
+const timerDisplay = document.getElementById('timer-display');
+const startTimerBtn = document.getElementById('start-timer');
+const pauseTimerBtn = document.getElementById('pause-timer');
+const resetTimerBtn = document.getElementById('reset-timer');
+
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+// State variables
+let challengeActive = false;
+let startDate = null;
+let currentDay = 0;
+let tasksCompleted = 0;
+let currentStreak = 0;
+let journalData = [];
+
+// Initialize the app
+function init() {
+    loadData();
+    setupEventListeners();
+    updateUI();
+    setupCalendar();
+    setRandomQuote();
+}
+
+// Load data from localStorage
+function loadData() {
+    const savedData = JSON.parse(localStorage.getItem('rebootData'));
+    if (savedData) {
+        challengeActive = savedData.challengeActive;
+        startDate = savedData.startDate ? new Date(savedData.startDate) : null;
+        currentDay = savedData.currentDay || 0;
+        tasksCompleted = savedData.tasksCompleted || 0;
+        currentStreak = savedData.currentStreak || 0;
+        journalData = savedData.journalData || [];
+        
+        // Load task checkboxes
+        if (savedData.taskStatus) {
+            taskCheckboxes.forEach(checkbox => {
+                const week = checkbox.dataset.week;
+                const task = checkbox.dataset.task;
+                const key = `${week}-${task}`;
+                if (savedData.taskStatus[key]) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+        
+        // Check if dark mode is enabled
+        if (savedData.darkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        
+        // Update notifications settings
+        if (savedData.notifications !== undefined) {
+            notificationsToggle.checked = savedData.notifications;
+        }
+        
+        // Update reminders settings
+        if (savedData.reminders !== undefined) {
+            remindersToggle.checked = savedData.reminders;
+        }
+    }
+}
+
+// Save data to localStorage
+function saveData() {
+    const taskStatus = {};
+    taskCheckboxes.forEach(checkbox => {
+        const week = checkbox.dataset.week;
+        const task = checkbox.dataset.task;
+        const key = `${week}-${task}`;
+        taskStatus[key] = checkbox.checked;
+    });
+    
+    const data = {
+        challengeActive,
+        startDate: startDate ? startDate.toISOString() : null,
+        currentDay,
+        tasksCompleted,
+        currentStreak,
+        journalData,
+        taskStatus,
+        darkMode: document.body.classList.contains('dark-mode'),
+        notifications: notificationsToggle.checked,
+        reminders: remindersToggle.checked
+    };
+    
+    localStorage.setItem('rebootData', JSON.stringify(data));
+}
+
+// Set up event listeners
+function setupEventListeners() {
+    // Settings Modal
+    settingsBtn.addEventListener('click', () => {
+        settingsModal.classList.add('active');
+    });
+    
+    closeSettings.addEventListener('click', () => {
+        settingsModal.classList.remove('active');
+    });
+    
+    darkModeToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+        saveData();
+    });
+    
+    notificationsToggle.addEventListener('change', saveData);
+    remindersToggle.addEventListener('change', saveData);
+    
+    resetProgressBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+            resetProgress();
+        }
+    });
+    
+    // Start Challenge Modal
+    startChallengeBtn.addEventListener('click', () => {
+        startModal.classList.add('active');
+    });
+    
+    closeStart.addEventListener('click', () => {
+        startModal.classList.remove('active');
+    });
+    
+    confirmStartBtn.addEventListener('click', () => {
+        startChallenge();
+        startModal.classList.remove('active');
+    });
+    
+    // Emergency Modal
+    emergencyBtn.addEventListener('click', () => {
+        emergencyModal.classList.add('active');
+    });
+    
+    closeEmergency.addEventListener('click', () => {
+        emergencyModal.classList.remove('active');
+    });
+    
+    emergencyDoneBtn.addEventListener('click', () => {
+        emergencyModal.classList.remove('active');
+    });
+    
+    // Learn More Modal
+    learnMoreBtn.addEventListener('click', () => {
+        learnMoreModal.classList.add('active');
+    });
+    
+    closeLearnMore.addEventListener('click', () => {
+        learnMoreModal.classList.remove('active');
+    });
+    
+    learnMoreStartBtn.addEventListener('click', () => {
+        learnMoreModal.classList.remove('active');
+        startModal.classList.add('active');
+    });
+    
+    // Week Tabs
+    weekTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const weekNumber = tab.dataset.week;
+            weekTabs.forEach(t => t.classList.remove('active'));
+            weekContents.forEach(content => content.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(`week-${weekNumber}`).classList.add('active');
+        });
+    });
+    
+    // Task Checkboxes
+    taskCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            updateTaskCompletion();
+            saveData();
+        });
+    });
+    
+    // Journal
+    saveJournalBtn.addEventListener('click', saveJournalEntry);
+    
+    // Calendar
+    prevMonthBtn.addEventListener('click', () => {
+        navigateMonth(-1);
+    });
+    
+    nextMonthBtn.addEventListener('click', () => {
+        navigateMonth(1);
+    });
+    
+    // Timer
+    startTimerBtn.addEventListener('click', startTimer);
+    pauseTimerBtn.addEventListener('click', pauseTimer);
+    resetTimerBtn.addEventListener('click', resetTimer);
+    
+    // Mobile Menu
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    
+    // Window events
+    window.addEventListener('click', (e) => {
+        if (e.target === startModal) {
+            startModal.classList.remove('active');
+        } else if (e.target === settingsModal) {
+            settingsModal.classList.remove('active');
+        } else if (e.target === emergencyModal) {
+            emergencyModal.classList.remove('active');
+        } else if (e.target === learnMoreModal) {
+            learnMoreModal.classList.remove('active');
+        }
+    });
+}
+
+// Update UI based on current state
+function updateUI() {
+    if (challengeActive) {
+        startChallengeBtn.textContent = 'Continue Challenge';
+        startChallengeBtn.classList.remove('pulse-animation');
+        
+        // Update progress
+        updateProgress();
+        
+        // Update journal entries
+        updateJournalEntries();
+    }
+}
+
+// Start the challenge
+function startChallenge() {
+    if (!challengeActive) {
+        challengeActive = true;
+        startDate = new Date(document.getElementById('start-date').value);
+        currentDay = 1;
+        updateProgress();
+        saveData();
+    }
+}
+
+// Reset progress
+function resetProgress() {
+    challengeActive = false;
+    startDate = null;
+    currentDay = 0;
+    tasksCompleted = 0;
+    currentStreak = 0;
+    journalData = [];
+    
+    // Uncheck all tasks
+    taskCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    
+    // Clear journal entries
+    journalEntries.innerHTML = '<p class="empty-journal">No journal entries yet. Start reflecting on your journey!</p>';
+    
+    // Update progress
+    updateProgress();
+    
+    // Save data
+    saveData();
+    
+    // Reload calendar
+    setupCalendar();
+}
+
+// Update progress indicators
+function updateProgress() {
+    // Calculate total tasks
+    const totalTasks = taskCheckboxes.length;
+    
+    // Count completed tasks
+    let completedTasks = 0;
+    taskCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            completedTasks++;
+        }
+    });
+    
+    tasksCompleted = completedTasks;
+    
+    // Calculate progress percentage
+    const progressPercent = Math.round((completedTasks / totalTasks) * 100);
+    
+    // Update progress bar
+    progressFill.style.width = `${progressPercent}%`;
+    progressPercentage.textContent = `${progressPercent}%`;
+    
+    // Update stats
+    daysCompletedEl.textContent = currentDay;
+    tasksCompletedEl.textContent = tasksCompleted;
+    currentStreakEl.textContent = currentStreak;
+    daysRemainingEl.textContent = Math.max(0, 30 - currentDay);
+}
+
+// Update task completion status
+function updateTaskCompletion() {
+    updateProgress();
+}
+
+// Calendar functions
+function setupCalendar() {
+    const today = new Date();
+    updateCalendarHeader();
+    renderCalendar();
+}
+
+function updateCalendarHeader() {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    calendarMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+}
+
+function renderCalendar() {
+    calendarGrid.innerHTML = '';
+    
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const startingDay = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < startingDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'calendar-day empty';
+        calendarGrid.appendChild(emptyDay);
+    }
+    
+    // Add days of the month
+    for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.textContent = i;
+        
+        // Check if this is a challenge day
+        if (challengeActive && startDate) {
+            const currentDate = new Date(currentYear, currentMonth, i);
+            const challengeDay = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+            
+            if (challengeDay > 0 && challengeDay <= 30) {
+                day.classList.add('active');
+                
+                // Check if this day has a journal entry
+                const hasJournalEntry = journalData.some(entry => {
+                    const entryDate = new Date(entry.date);
+                    return entryDate.getDate() === i && 
+                           entryDate.getMonth() === currentMonth && 
+                           entryDate.getFullYear() === currentYear;
+                });
+                
+                if (hasJournalEntry) {
+                    day.classList.add('completed');
+                }
+            }
+        }
+        
+        calendarGrid.appendChild(day);
+    }
+}
+
+function navigateMonth(direction) {
+    currentMonth += direction;
+    
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    
+    updateCalendarHeader();
+    renderCalendar();
+}
+
+// Journal functions
+function saveJournalEntry() {
+    const text = journalText.value.trim();
+    if (text) {
+        const entry = {
+            date: new Date().toISOString(),
+            text: text
+        };
+        
+        journalData.push(entry);
+        journalText.value = '';
+        
+        updateJournalEntries();
+        saveData();
+        
+        // Update calendar
+        renderCalendar();
+    }
+}
+
+function updateJournalEntries() {
+    if (journalData.length === 0) {
+        journalEntries.innerHTML = '<p class="empty-journal">No journal entries yet. Start reflecting on your journey!</p>';
+        return;
+    }
+    
+    journalEntries.innerHTML = '';
+    
+    // Sort entries by date (newest first)
+    const sortedEntries = [...journalData].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+    
+    sortedEntries.forEach(entry => {
+        const entryElement = document.createElement('div');
+        entryElement.className = 'journal-entry';
+        
+        const date = new Date(entry.date);
+        const formattedDate = `${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
+        
+        entryElement.innerHTML = `
+            <div class="entry-date">${formattedDate}</div>
+            <div class="entry-content">${entry.text}</div>
+        `;
+        
+        journalEntries.appendChild(entryElement);
+    });
+}
+
+// Timer functions
+function startTimer() {
+    if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+}
+
+function pauseTimer() {
+    if (timerRunning) {
+        timerRunning = false;
+        clearInterval(timerInterval);
+    }
+}
+
+function resetTimer() {
+    pauseTimer();
+    timerMinutes = 25;
+    timerSeconds = 0;
+    updateTimerDisplay();
+}
+
+function updateTimer() {
+    if (timerSeconds > 0) {
+        timerSeconds--;
+    } else if (timerMinutes > 0) {
+        timerMinutes--;
+        timerSeconds = 59;
+    } else {
+        // Timer is finished
+        pauseTimer();
+        alert('Pomodoro session completed! Take a short break.');
+        resetTimer();
+    }
+    
+    updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+    const minutes = timerMinutes.toString().padStart(2, '0');
+    const seconds = timerSeconds.toString().padStart(2, '0');
+    timerDisplay.textContent = `${minutes}:${seconds}`;
+}
+
+// Set a random motivational quote
+function setRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quoteElement = document.getElementById('daily-quote');
+    const authorElement = document.getElementById('quote-author');
+    
+    quoteElement.textContent = quotes[randomIndex].quote;
+    authorElement.textContent = `- ${quotes[randomIndex].author}`;
+}
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', init);
+let calendar = [];
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+// Timer variables
+let timerMinutes = 25;
+let timerSeconds = 0;
+let timerInterval = null;
+let timerRunning = false;
+
+// Quotes for daily motivation
+const quotes = [
+    { quote: "The secret of change is to focus all of your energy, not on fighting the old, but on building the new.", author: "Socrates" },
+    { quote: "You will never change your life until you change something you do daily.", author: "John C. Maxwell" },
+    { quote: "Small disciplines repeated with consistency every day lead to great achievements gained slowly over time.", author: "John C. Maxwell" },
+    { quote: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" },
+    { quote: "It's not what we do once in a while that shapes our lives, but what we do consistently.", author: "Tony Robbins" },
+    { quote: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Aristotle" },
+    { quote: "Motivation is what gets you started. Habit is what keeps you going.", author: "Jim Ryun" },
+    { quote: "Your actions become your habits, your habits become your values, and your values become your destiny.", author: "Mahatma Gandhi" },
+    { quote: "Habits are first cobwebs, then cables.", author: "Spanish Proverb" },
+    { quote: "Don't count the days, make the days count.", author: "Muhammad Ali" }
+];
+</script>
+</body>
+</html>
