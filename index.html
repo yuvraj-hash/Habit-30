@@ -1060,6 +1060,489 @@ input:checked + .toggle-slider:before {
     }
 }
 
+/* Template Gallery Styles */
+.template-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.template-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.template-card.selected {
+    border: 2px solid var(--primary-color);
+}
+
+.template-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.template-card:nth-child(1) .template-icon {
+    background-color: rgba(64, 96, 237, 0.1);
+    color: #4060ed;
+}
+
+.template-card:nth-child(2) .template-icon {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.template-card:nth-child(3) .template-icon {
+    background-color: rgba(156, 39, 176, 0.1);
+    color: #9c27b0;
+}
+
+.template-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.template-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.select-template-btn {
+    width: 100%;
+}
+
+/* Task Editing Styles */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #f9f9f9;
+}
+
+.task-handle {
+    cursor: move;
+    margin-right: 10px;
+    color: #aaa;
+}
+
+.task-handle:hover {
+    color: #666;
+}
+
+.task-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.task-edit-btn, .task-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.task-edit-btn {
+    color: #4060ed;
+}
+
+.task-edit-btn:hover {
+    background-color: rgba(64, 96, 237, 0.1);
+}
+
+.task-delete-btn {
+    color: #e74c3c;
+}
+
+.task-delete-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.task-edit-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.task-edit-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.task-save-btn, .task-cancel-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.task-save-btn {
+    background-color: #4060ed;
+    color: white;
+}
+
+.task-cancel-btn {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.add-task-container {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.add-task-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: #f1f1f1;
+}
+
+.sidebar-actions {
+    margin-top: 20px;
+}
+
+/* New title for the current template */
+#current-template-title {
+    font-size: 1.75rem; /* Adjust size as needed */
+    color: var(--primary-color); /* Or var(--text-dark) */
+    margin-bottom: 1rem; /* Space below the title */
+    padding-bottom: 0.5rem; /* Optional: space before a potential border */
+    border-bottom: 1px solid var(--gray-light); /* Optional: separator line */
+    text-align: center; /* Or left, as you prefer */
+    font-weight: 600;
+}
+
+body.dark-mode #current-template-title {
+    color: var(--primary-color); /* Or var(--text-light) */
+    border-bottom-color: #4a6583; /* Dark mode border color */
+}
+
+.modal-description {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .template-card {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .template-card p {
+    color: #aaa;
+}
+
+body.dark-mode .task-item {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .task-item:hover {
+    background-color: #333;
+}
+
+body.dark-mode .task-edit-input {
+    background-color: #333;
+    border-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .task-cancel-btn {
+    background-color: #444;
+    color: #eee;
+}
+
+/* CSS for custom week elements */
+/* Container layout fixes */
+.content {
+    position: relative;
+    overflow: hidden; /* Prevent content from overflowing */
+    display: flex;
+    flex-direction: column;
+}
+
+.week-tab-controls {
+    width: 100%;
+}
+
+.week-content {
+    display: none; /* Hide by default */
+    width: 100%;
+    overflow-y: auto; /* Allow scrolling inside content if needed */
+    max-height: calc(100% - 50px); /* Adjust based on the height of your tabs */
+}
+
+.week-content.active {
+    display: block; /* Show only active content */
+}
+
+/* Custom week tab */
+.week-tab {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-right: 2px;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.2s;
+    position: relative;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.week-tab.active {
+    background-color: #fff;
+    color: #2E7D32; /* or #2E7D32 or whatever fits */
+    border-bottom: 2px solid #4CAF50;
+}
+
+.week-tab.custom-week {
+    background-color: #f8f9fa;
+    color: black;
+    border-left: 3px solid #4CAF50;
+}
+
+/* Focus styles for week tabs */
+.week-tab:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Active and focus styles combined */
+.week-tab.active:focus {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgb(255, 255, 255);
+}
+
+/* Week header with title and delete button */
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Delete button inside week content */
+.delete-week-content-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+.delete-week-content-btn:hover {
+    background-color: #d32f2f;
+}
+.delete-week-content-btn:focus {
+    outline: 2px solid #f44336;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.3);
+}
+.delete-week-content-btn i {
+    font-size: 14px;
+}
+
+/* Custom week content */
+.custom-week-content {
+    border-left: 3px solid #4CAF50;
+    padding-left: 15px;
+}
+
+/* Add Task Button */
+.add-task-item {
+    margin-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 15px;
+}
+.add-task-btn {
+    background-color: transparent;
+    border: 1px dashed #9e9e9e;
+    color: #666;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    transition: all 0.2s;
+}
+.add-task-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #666;
+    color: #333;
+}
+.add-task-btn:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Task Input */
+.task-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+.task-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Save Task Button */
+.save-task-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.save-task-btn:hover {
+    background-color: #388E3C;
+}
+.save-task-btn:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+/* Edit Task Button */
+.edit-task-btn {
+    background-color: transparent;
+    border: none;
+    color: #2196F3;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.edit-task-btn:hover {
+    opacity: 1;
+}
+.edit-task-btn:focus {
+    outline: 2px solid #2196F3;
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+/* Delete Task Button */
+.delete-task-btn {
+    background-color: transparent;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.delete-task-btn:hover {
+    opacity: 1;
+}
+.delete-task-btn:focus {
+    outline: 2px solid #f44336;
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+/* Task item layout */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+/* Week tabs positioning enhancements */
+.week-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px; /* Add space between tabs and content */
+    border-bottom: 1px solid #e0e0e0; /* Add separator line */
+    width: 100%;
+}
+
+/* Week actions positioning */
+.week-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Make sure content area has proper padding */
+.content {
+    padding: 15px;
+}
+
 @media (max-width: 576px) {
     .hero {
         padding: 3rem 0;
@@ -1150,7 +1633,7 @@ input:checked + .toggle-slider:before {
                     </div>
                 </div>
 
-<br>
+                <br>
 
                 <div class="timer-container">
                     <h3>Pomodoro Timer</h3>
@@ -1167,7 +1650,7 @@ input:checked + .toggle-slider:before {
                         </button>
                     </div>
                 </div>
-<br>
+                <br>
 
                 <div class="motivation">
                     <h3>Daily Motivation</h3>
@@ -1176,13 +1659,117 @@ input:checked + .toggle-slider:before {
                 </div>
             </aside>
 
-            <div class="content">
-                <div class="week-tabs">
-                    <div class="week-tab active" data-week="1">Week 1</div>
-                    <div class="week-tab" data-week="2">Week 2</div>
-                    <div class="week-tab" data-week="3">Week 3</div>
-                    <div class="week-tab" data-week="4">Week 4</div>
-                </div>
+<!-- Updated structure for better content containment -->
+<div class="main-container">
+    <div class="content">
+      <h3 id="current-template-title">Current Template: Digital Detox</h3>
+        <div class="week-tab-controls">
+            <div class="week-tabs">
+                <div class="week-tab active" data-week="1" tabindex="0">Week 1</div>
+                <div class="week-tab" data-week="2" tabindex="0">Week 2</div>
+                <div class="week-tab" data-week="3" tabindex="0">Week 3</div>
+                <div class="week-tab" data-week="4" tabindex="0">Week 4</div>
+                <!-- Custom weeks will be added here dynamically -->
+            </div>
+            <div class="week-actions">
+                <button class="btn btn-secondary btn-sm" id="create-custom-week-btn">
+                    <i class="fas fa-plus"></i> Create Custom Week
+                </button>
+                <button class="btn btn-secondary btn-sm" id="choose-template-btn">
+                    <i class="fas fa-th-large"></i> Choose Template
+                </button>
+            </div>
+        </div>
+        
+        <!-- Week content containers -->
+        <div class="week-content active" id="week-1">
+            <!-- Content for Week 1 -->
+            <div class="week-header">
+                <h2>Week 1</h2>
+            </div>
+            <ul class="task-list">
+                <!-- Tasks for Week 1 -->
+                <li class="task-item add-task-item">
+                    <button class="add-task-btn" data-week="1">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="week-content" id="week-2">
+            <!-- Content for Week 2 -->
+            <div class="week-header">
+                <h2>Week 2</h2>
+            </div>
+            <ul class="task-list">
+                <!-- Tasks for Week 2 -->
+                <li class="task-item add-task-item">
+                    <button class="add-task-btn" data-week="2">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="week-content" id="week-3">
+            <!-- Content for Week 3 -->
+            <div class="week-header">
+                <h2>Week 3</h2>
+            </div>
+            <ul class="task-list">
+                <!-- Tasks for Week 3 -->
+                <li class="task-item add-task-item">
+                    <button class="add-task-btn" data-week="3">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="week-content" id="week-4">
+            <!-- Content for Week 4 -->
+            <div class="week-header">
+                <h2>Week 4</h2>
+            </div>
+            <ul class="task-list">
+                <!-- Tasks for Week 4 -->
+                <li class="task-item add-task-item">
+                    <button class="add-task-btn" data-week="4">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Custom week content will be added here dynamically -->
+    </div>
+</div>
+
+<!-- Custom Week Modal -->
+<div id="custom-week-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Create Custom Week</h2>
+            <span id="close-custom-week" class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="week-title">Week Title:</label>
+                <input type="text" id="week-title" class="form-control" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+                <label for="week-description">Description:</label>
+                <textarea id="week-description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="cancel-custom-week" class="btn btn-secondary">Cancel</button>
+            <button id="create-week" class="btn btn-primary">Create Week</button>
+        </div>
+    </div>
+</div>
+<br>
 
                 <div class="week-content active" id="week-1">
                     <h2>Week 1: Shock the System (Days 1-7)</h2>
@@ -1379,6 +1966,72 @@ input:checked + .toggle-slider:before {
         </div>
     </main>
 
+    <!-- Template Gallery Modal -->
+    <div class="modal" id="template-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-template">&times;</span>
+            <h2 class="modal-title">Choose a Challenge Template</h2>
+            <p class="modal-description">Select a template that matches your goals. Each template includes a customized set of tasks designed for specific outcomes.</p>
+            
+            <div class="template-gallery">
+                <div class="template-card" data-template="focus-boost">
+                    <div class="template-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Focus Boost</h3>
+                    <p>Enhance concentration and productivity with tasks designed to improve mental clarity and focus.</p>
+                    <button class="btn btn-primary select-template-btn">Select Template</button>
+                </div>
+                
+                <div class="template-card" data-template="digital-detox">
+                    <div class="template-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Digital Detox</h3>
+                    <p>Break free from screen addiction and reclaim your time with a structured digital minimalism plan.</p>
+                    <button class="btn btn-primary select-template-btn">Select Template</button>
+                </div>
+                
+                <div class="template-card" data-template="nofap">
+                    <div class="template-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>NoFap</h3>
+                    <p>Overcome pornography and masturbation addiction with a proven 30-day reboot program.</p>
+                    <button class="btn btn-primary select-template-btn">Select Template</button>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-template">Cancel</button>
+                <button class="btn btn-primary" id="apply-template" disabled>Apply Template</button>
+            </div>
+        </div>
+    </div>
+
+<div class="modal" id="custom-week-modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-custom-week">&times;</span>
+        <h2 class="modal-title">Create Custom Week</h2>
+        
+        <div class="modal-form">
+            <div class="form-group">
+                <label for="week-title">Week Title</label>
+                <input type="text" id="week-title" placeholder="e.g., Week 5: Maintenance">
+            </div>
+            <div class="form-group">
+                <label for="week-description">Description</label>
+                <textarea id="week-description" placeholder="Describe the focus of this week..."></textarea>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-secondary" id="cancel-custom-week">Cancel</button>
+            <button class="btn btn-primary" id="create-week">Create Week</button>
+        </div>
+    </div>
+</div>
+
     <footer id="community">
         <div class="container">
             <div class="footer-content">
@@ -1520,7 +2173,7 @@ input:checked + .toggle-slider:before {
         </div>
     </div>
 
-    <script>
+  <script>
 // DOM Elements
 const settingsBtn = document.getElementById('settings-btn');
 const settingsModal = document.getElementById('settings-modal');
@@ -2066,6 +2719,1081 @@ const quotes = [
     { quote: "Habits are first cobwebs, then cables.", author: "Spanish Proverb" },
     { quote: "Don't count the days, make the days count.", author: "Muhammad Ali" }
 ];
+
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add SortableJS library
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js';
+    document.head.appendChild(script);
+    
+    script.onload = function() {
+        initializeSortable();
+        setupTemplateGallery();
+        setupTaskEditing();
+        setupCustomWeekCreation();
+    };
+    
+    // Initialize current template
+    let currentTemplate = localStorage.getItem('currentTemplate') || 'nofap';
+    updateTemplateDisplay(currentTemplate);
+});
+
+// Initialize Sortable for task lists
+function initializeSortable() {
+    // Get all task lists
+    const taskLists = document.querySelectorAll('.task-list');
+    
+    // Initialize Sortable for each task list
+    taskLists.forEach(taskList => {
+        new Sortable(taskList, {
+            animation: 150,
+            handle: '.task-handle',
+            ghostClass: 'sortable-ghost',
+            onEnd: function(evt) {
+                // Save the new order to localStorage
+                saveTasksOrder(evt.to);
+            }
+        });
+        
+        // Add drag handles to each task item
+        const taskItems = taskList.querySelectorAll('.task-item');
+        taskItems.forEach(item => {
+            if (!item.querySelector('.task-handle')) {
+                const handle = document.createElement('div');
+                handle.className = 'task-handle';
+                handle.innerHTML = '<i class="fas fa-grip-vertical"></i>';
+                item.insertBefore(handle, item.firstChild);
+                
+                // Add action buttons
+                addTaskActions(item);
+            }
+        });
+    });
+}
+
+// Add edit and delete buttons to task items
+function addTaskActions(taskItem) {
+    // Check if actions already exist
+    if (taskItem.querySelector('.task-actions')) return;
+    
+    const actions = document.createElement('div');
+    actions.className = 'task-actions';
+    
+    const editBtn = document.createElement('button');
+    editBtn.className = 'task-edit-btn';
+    editBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+    editBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        enableTaskEditing(taskItem);
+    });
+    
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'task-delete-btn';
+    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        deleteTask(taskItem);
+    });
+    
+    actions.appendChild(editBtn);
+    actions.appendChild(deleteBtn);
+    taskItem.appendChild(actions);
+}
+
+// Enable editing for a task
+function enableTaskEditing(taskItem) {
+    const taskText = taskItem.querySelector('.task-text');
+    const currentText = taskText.textContent;
+    
+    // Create edit input
+    const editContainer = document.createElement('div');
+    editContainer.className = 'task-edit-container';
+    editContainer.style.display = 'flex';
+    editContainer.style.flex = '1';
+    
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'task-edit-input';
+    input.value = currentText;
+    
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'task-edit-actions';
+    
+    const saveBtn = document.createElement('button');
+    saveBtn.className = 'task-save-btn';
+    saveBtn.innerHTML = '<i class="fas fa-check"></i>';
+    saveBtn.addEventListener('click', function() {
+        saveTaskEdit(taskItem, input.value);
+    });
+    
+    const cancelBtn = document.createElement('button');
+    cancelBtn.className = 'task-cancel-btn';
+    cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
+    cancelBtn.addEventListener('click', function() {
+        cancelTaskEdit(taskItem);
+    });
+    
+    actionsDiv.appendChild(saveBtn);
+    actionsDiv.appendChild(cancelBtn);
+    
+    editContainer.appendChild(input);
+    editContainer.appendChild(actionsDiv);
+    
+    // Hide the task text and checkbox
+    taskText.style.display = 'none';
+    const checkbox = taskItem.querySelector('.task-checkbox');
+    if (checkbox) checkbox.style.display = 'none';
+    
+    // Hide the actions
+    const actions = taskItem.querySelector('.task-actions');
+    if (actions) actions.style.display = 'none';
+    
+    // Add the edit container after the handle
+    const handle = taskItem.querySelector('.task-handle');
+    handle.insertAdjacentElement('afterend', editContainer);
+    
+    // Focus the input
+    input.focus();
+    
+    // Add event listener for Enter key
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            saveTaskEdit(taskItem, input.value);
+        } else if (e.key === 'Escape') {
+            cancelTaskEdit(taskItem);
+        }
+    });
+}
+
+// Save task edit
+function saveTaskEdit(taskItem, newText) {
+    const taskText = taskItem.querySelector('.task-text');
+    taskText.textContent = newText;
+    taskText.style.display = '';
+    
+    // Show the checkbox again
+    const checkbox = taskItem.querySelector('.task-checkbox');
+    if (checkbox) checkbox.style.display = '';
+    
+    // Show the actions again
+    const actions = taskItem.querySelector('.task-actions');
+    if (actions) actions.style.display = '';
+    
+    // Remove the edit container
+    const editContainer = taskItem.querySelector('.task-edit-container');
+    if (editContainer) editContainer.remove();
+    
+    // Save to localStorage
+    saveTasksToLocalStorage();
+}
+
+// Cancel task edit
+function cancelTaskEdit(taskItem) {
+    const taskText = taskItem.querySelector('.task-text');
+    taskText.style.display = '';
+    
+    // Show the checkbox again
+    const checkbox = taskItem.querySelector('.task-checkbox');
+    if (checkbox) checkbox.style.display = '';
+    
+    // Show the actions again
+    const actions = taskItem.querySelector('.task-actions');
+    if (actions) actions.style.display = '';
+    
+    // Remove the edit container
+    const editContainer = taskItem.querySelector('.task-edit-container');
+    if (editContainer) editContainer.remove();
+}
+
+// Delete a task
+function deleteTask(taskItem) {
+    if (confirm('Are you sure you want to delete this task?')) {
+        taskItem.remove();
+        saveTasksToLocalStorage();
+    }
+}
+
+// Save tasks order to localStorage
+function saveTasksOrder(taskList) {
+    saveTasksToLocalStorage();
+}
+
+// Save all tasks to localStorage
+function saveTasksToLocalStorage() {
+    const weeks = document.querySelectorAll('.week-content');
+    const allTasks = {};
+    
+    weeks.forEach(week => {
+        const weekId = week.id;
+        const taskItems = week.querySelectorAll('.task-item');
+        const weekTasks = [];
+        
+        taskItems.forEach(item => {
+            const checkbox = item.querySelector('.task-checkbox');
+            const taskText = item.querySelector('.task-text');
+            
+            if (checkbox && taskText) {
+                weekTasks.push({
+                    id: checkbox.dataset.task,
+                    text: taskText.textContent,
+                    completed: checkbox.checked
+                });
+            }
+        });
+        
+        allTasks[weekId] = weekTasks;
+    });
+    
+    localStorage.setItem('rebootTasks', JSON.stringify(allTasks));
+}
+
+// Load tasks from localStorage
+function loadTasksFromLocalStorage() {
+    const savedTasks = localStorage.getItem('rebootTasks');
+    if (!savedTasks) return;
+    
+    const allTasks = JSON.parse(savedTasks);
+    
+    for (const weekId in allTasks) {
+        const weekElement = document.getElementById(weekId);
+        if (!weekElement) continue;
+        
+        const taskList = weekElement.querySelector('.task-list');
+        if (!taskList) continue;
+        
+        // Clear existing tasks
+        taskList.innerHTML = '';
+        
+        // Add tasks from localStorage
+        allTasks[weekId].forEach(task => {
+            const taskItem = createTaskItem(task.text, task.completed, weekId, task.id);
+            taskList.appendChild(taskItem);
+        });
+    }
+}
+
+// Create a new task item
+function createTaskItem(text, completed, weekId, taskId) {
+    const li = document.createElement('li');
+    li.className = 'task-item';
+    
+    const handle = document.createElement('div');
+    handle.className = 'task-handle';
+    handle.innerHTML = '<i class="fas fa-grip-vertical"></i>';
+    
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'task-checkbox';
+    checkbox.checked = completed;
+    checkbox.dataset.week = weekId.replace('week-', '');
+    checkbox.dataset.task = taskId;
+    
+    const span = document.createElement('span');
+    span.className = 'task-text';
+    span.textContent = text;
+    
+    li.appendChild(handle);
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    
+    // Add action buttons
+    addTaskActions(li);
+    
+    return li;
+}
+
+// Add a new task
+function addNewTask(weekId, taskText) {
+    const weekElement = document.getElementById(weekId);
+    if (!weekElement) return;
+    
+    const taskList = weekElement.querySelector('.task-list');
+    if (!taskList) return;
+    
+    const taskId = `custom-${Date.now()}`;
+    const taskItem = createTaskItem(taskText, false, weekId, taskId);
+    taskList.appendChild(taskItem);
+    
+    saveTasksToLocalStorage();
+}
+
+// Setup task editing functionality
+function setupTaskEditing() {
+    // Load tasks from localStorage
+    loadTasksFromLocalStorage();
+    
+    // Add "Add Task" input and button to each week
+    const weeks = document.querySelectorAll('.week-content');
+    weeks.forEach(week => {
+        const weekId = week.id;
+        const taskList = week.querySelector('.task-list');
+        
+        if (taskList) {
+            const addTaskContainer = document.createElement('div');
+            addTaskContainer.className = 'add-task-container';
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'add-task-input';
+            input.placeholder = 'Add a new task...';
+            
+            const button = document.createElement('button');
+            button.className = 'btn btn-primary';
+            button.innerHTML = '<i class="fas fa-plus"></i> Add';
+            button.addEventListener('click', function() {
+                if (input.value.trim()) {
+                    addNewTask(weekId, input.value.trim());
+                    input.value = '';
+                }
+            });
+            
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && input.value.trim()) {
+                    addNewTask(weekId, input.value.trim());
+                    input.value = '';
+                }
+            });
+            
+            addTaskContainer.appendChild(input);
+            addTaskContainer.appendChild(button);
+            
+            taskList.insertAdjacentElement('afterend', addTaskContainer);
+        }
+    });
+    
+    // Add event listeners for task checkboxes
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('task-checkbox')) {
+            saveTasksToLocalStorage();
+        }
+    });
+}
+
+// Template gallery functionality
+function setupTemplateGallery() {
+    // Add "Choose Template" button to sidebar
+    const chooseTemplateBtn = document.getElementById('choose-template-btn');
+    const templateModal = document.getElementById('template-modal');
+    const closeTemplate = document.getElementById('close-template');
+    const cancelTemplate = document.getElementById('cancel-template');
+    const applyTemplate = document.getElementById('apply-template');
+    const templateCards = document.querySelectorAll('.template-card');
+    
+    let selectedTemplate = null;
+    
+    // Show template modal
+    chooseTemplateBtn.addEventListener('click', function() {
+        templateModal.style.display = 'block';
+        
+        // Reset selection
+        templateCards.forEach(card => {
+            card.classList.remove('selected');
+            if (card.dataset.template === currentTemplate) {
+                card.classList.add('selected');
+                selectedTemplate = card.dataset.template;
+                applyTemplate.disabled = false;
+            }
+        });
+    });
+    
+    // Close template modal
+    closeTemplate.addEventListener('click', function() {
+        templateModal.style.display = 'none';
+    });
+    
+    cancelTemplate.addEventListener('click', function() {
+        templateModal.style.display = 'none';
+    });
+    
+    // Select template
+    templateCards.forEach(card => {
+        card.addEventListener('click', function() {
+            templateCards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedTemplate = card.dataset.template;
+            applyTemplate.disabled = false;
+        });
+        
+        // Select button click
+        const selectBtn = card.querySelector('.select-template-btn');
+        selectBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            templateCards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedTemplate = card.dataset.template;
+            applyTemplate.disabled = false;
+        });
+    });
+    
+    // Apply template
+    applyTemplate.addEventListener('click', function() {
+        if (selectedTemplate) {
+            applyTemplateToTasks(selectedTemplate);
+            templateModal.style.display = 'none';
+        }
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === templateModal) {
+            templateModal.style.display = 'none';
+        }
+    });
+}
+
+// Apply selected template to tasks
+function applyTemplateToTasks(templateId) {
+    // Store the current template
+    currentTemplate = templateId;
+    localStorage.setItem('currentTemplate', templateId);
+    
+    // Update the template display
+    updateTemplateDisplay(templateId);
+    
+    // Load template tasks
+    const templates = {
+        'focus-boost': {
+            'week-1': [
+                { id: 'fb-w1t1', text: 'Eliminate all notifications from your phone for 24 hours', completed: false },
+                { id: 'fb-w1t2', text: 'Create a dedicated workspace free from distractions', completed: false },
+                { id: 'fb-w1t3', text: 'Practice 10 minutes of mindfulness meditation', completed: false },
+                { id: 'fb-w1t4', text: 'Write down your top 3 priorities for the week', completed: false },
+                { id: 'fb-w1t5', text: 'Complete one task without any interruptions', completed: false }
+            ],
+            'week-2': [
+                { id: 'fb-w2t1', text: 'Use the Pomodoro technique (25 min work, 5 min break)', completed: false },
+                { id: 'fb-w2t2', text: 'Batch similar tasks together for 1 hour', completed: false },
+                { id: 'fb-w2t3', text: 'Take a 15-minute walk without your phone', completed: false },
+                { id: 'fb-w2t4', text: 'Practice saying \'no\' to one non-essential request', completed: false },
+                { id: 'fb-w2t5', text: 'Journal about what distracts you most', completed: false }
+            ],
+            'week-3': [
+                { id: 'fb-w3t1', text: 'Complete 3 Pomodoro sessions in a row', completed: false },
+                { id: 'fb-w3t2', text: 'Try a digital sunset (no screens 2 hours before bed)', completed: false },
+                { id: 'fb-w3t3', text: 'Practice deep work for 90 minutes', completed: false },
+                { id: 'fb-w3t4', text: 'Use a website blocker during work hours', completed: false },
+                { id: 'fb-w3t5', text: 'Review your progress and adjust your environment', completed: false }
+            ],
+            'week-4': [
+                { id: 'fb-w4t1', text: 'Increase meditation to 20 minutes', completed: false },
+                { id: 'fb-w4t2', text: 'Schedule your day in time blocks', completed: false },
+                { id: 'fb-w4t3', text: 'Complete a 2-hour deep work session', completed: false },
+                { id: 'fb-w4t4', text: 'Create a weekly review ritual', completed: false },
+                { id: 'fb-w4t5', text: 'Design your ideal focus system for long-term use', completed: false }
+            ]
+        },
+        'digital-detox': {
+            'week-1': [
+                { id: 'dd-w1t1', text: 'Uninstall one social media app from your phone', completed: false },
+                { id: 'dd-w1t2', text: 'Turn off all non-essential notifications', completed: false },
+                { id: 'dd-w1t3', text: 'Set a 1-hour time limit for recreational screen time', completed: false },
+                { id: 'dd-w1t4', text: 'Keep your phone in another room while working', completed: false },
+                { id: 'dd-w1t5', text: 'Read a physical book for 20 minutes', completed: false }
+            ],
+            'week-2': [
+                { id: 'dd-w2t1', text: 'Have one completely screen-free day', completed: false },
+                { id: 'dd-w2t2', text: 'Delete email apps from your phone', completed: false },
+                { id: 'dd-w2t3', text: 'Turn your phone to grayscale mode', completed: false },
+                { id: 'dd-w2t4', text: 'Practice a hobby that doesn\'t involve screens', completed: false },
+                { id: 'dd-w2t5', text: 'Journal about how you feel with less screen time', completed: false }
+            ],
+            'week-3': [
+                { id: 'dd-w3t1', text: 'Limit checking email to twice per day', completed: false },
+                { id: 'dd-w3t2', text: 'Have a screen-free meal with friends or family', completed: false },
+                { id: 'dd-w3t3', text: 'Go for a nature walk without your phone', completed: false },
+                { id: 'dd-w3t4', text: 'Unsubscribe from 10 email newsletters', completed: false },
+                { id: 'dd-w3t5', text: 'Replace one hour of TV with a creative activity', completed: false }
+            ],
+            'week-4': [
+                { id: 'dd-w4t1', text: 'Have two consecutive screen-free days', completed: false },
+                { id: 'dd-w4t2', text: 'Create a technology usage policy for yourself', completed: false },
+                { id: 'dd-w4t3', text: 'Delete or archive unused apps', completed: false },
+                { id: 'dd-w4t4', text: 'Schedule specific times to check social media', completed: false },
+                { id: 'dd-w4t5', text: 'Design a balanced digital life plan', completed: false }
+            ]
+        },
+        'nofap': {
+            'week-1': [
+                { id: 'nf-w1t1', text: 'Take a cold shower first thing in the morning', completed: false },
+                { id: 'nf-w1t2', text: 'Write 3 reasons why you want to quit this habit', completed: false },
+                { id: 'nf-w1t3', text: 'Go for a 15-minute walk in the morning sunlight', completed: false },
+                { id: 'nf-w1t4', text: 'Delete access to adult content (apps, browsers, etc)', completed: false },
+                { id: 'nf-w1t5', text: 'Install content blockers like BlockSite or Cold Turkey', completed: false },
+                { id: 'nf-w1t6', text: 'Journal your triggers and emotional state every evening', completed: false },
+                { id: 'nf-w1t7', text: 'Sleep early, no screens after 9PM', completed: false },
+                { id: 'nf-w1t8', text: 'Say aloud: "I control my urges. I create, I don\'t consume."', completed: false },
+                { id: 'nf-w1t9', text: 'Listen to or read \'Atomic Habits\' by James Clear', completed: false }
+            ],
+            'week-2': [
+                { id: 'nf-w2t1', text: 'Use the 5-5-5 routine when urges hit (5 pushups, 5 breaths, 5 min of a new activity)', completed: false },
+                { id: 'nf-w2t2', text: 'Replace screen time with skill learning', completed: false },
+                { id: 'nf-w2t3', text: 'Complete 3 Pomodoro sessions of focused work', completed: false },
+                { id: 'nf-w2t4', text: 'Journal one positive win from the day', completed: false },
+                { id: 'nf-w2t5', text: 'Continue morning walk, journaling, and cold shower', completed: false }
+            ],
+            'week-3': [
+                { id: 'nf-w3t1', text: 'Do 1 hour of deep creative work', completed: false },
+                { id: 'nf-w3t2', text: 'Talk to one new person each day', completed: false },
+                { id: 'nf-w3t3', text: 'Exercise for 20-30 minutes', completed: false },
+                { id: 'nf-w3t4', text: 'Reflect at night: \'How did I act like the person I want to become today?\'', completed: false },
+                { id: 'nf-w3t5', text: 'Maintain streaks: journaling, exercise, learning', completed: false }
+            ],
+            'week-4': [
+                { id: 'nf-w4t1', text: 'Meditate 10 minutes using an app like Headspace or Insight Timer', completed: false },
+                { id: 'nf-w4t2', text: 'Share your journey or mentor someone else', completed: false },
+                { id: 'nf-w4t3', text: 'Keep all habit streaks alive: fitness, journal, creative work', completed: false },
+                { id: 'nf-w4t4', text: 'Say this daily: \'I\'m not escaping. I\'m building. I\'ve reclaimed my power.\'', completed: false },
+                { id: 'nf-w4t5', text: 'Set a visual cue (phone wallpaper/lockscreen) to keep you motivated', completed: false }
+            ]
+        }
+    };
+    
+    // Apply template tasks to each week
+    for (const weekId in templates[templateId]) {
+        const weekElement = document.getElementById(weekId);
+        if (!weekElement) continue;
+        
+        const taskList = weekElement.querySelector('.task-list');
+        if (!taskList) continue;
+        
+        // Clear existing tasks
+        taskList.innerHTML = '';
+        
+        // Add tasks from template
+        templates[templateId][weekId].forEach(task => {
+            const taskItem = createTaskItem(task.text, task.completed, weekId, task.id);
+            taskList.appendChild(taskItem);
+        });
+    }
+    
+    // Save to localStorage
+    saveTasksToLocalStorage();
+    
+    // Re-initialize sortable
+    initializeSortable();
+}
+
+// Update template display
+function updateTemplateDisplay(templateId) {
+    const contentDiv = document.querySelector('.content'); // Get the main content area
+    if (!contentDiv) {
+        console.error("'.content' div not found for template display.");
+        return;
+    }
+
+    let templateTitleElement = document.getElementById('current-template-title');
+
+    // If the title element doesn't exist, create it and prepend it to the contentDiv
+    if (!templateTitleElement) {
+        templateTitleElement = document.createElement('h3'); // Use <h3> for semantic heading
+        templateTitleElement.id = 'current-template-title';
+        contentDiv.prepend(templateTitleElement); // Add it to the very top of the .content div
+    }
+
+    // Determine the display name of the template
+    let templateNameDisplay = '';
+    if (templateId === 'focus-boost') {
+        templateNameDisplay = 'Focus Boost';
+    } else if (templateId === 'digital-detox') {
+        templateNameDisplay = 'Digital Detox';
+    } else if (templateId === 'nofap') {
+        templateNameDisplay = 'NoFap Challenge'; // Made it slightly more descriptive
+    }
+    // Add more else if blocks here if you add more templates
+
+    // Set the text content of the title
+    if (templateNameDisplay) {
+        templateTitleElement.textContent = `Current Template: ${templateNameDisplay}`;
+        templateTitleElement.style.display = 'block'; // Ensure it's visible
+    } else {
+        // If templateId is unknown or not set, hide the title element
+        templateTitleElement.textContent = '';
+        templateTitleElement.style.display = 'none';
+    }
+}
+
+// Custom week creation
+function setupCustomWeekCreation() {
+    const createCustomWeekBtn = document.getElementById('create-custom-week-btn');
+    const customWeekModal = document.getElementById('custom-week-modal');
+    const closeCustomWeek = document.getElementById('close-custom-week');
+    const cancelCustomWeek = document.getElementById('cancel-custom-week');
+    const createWeekBtn = document.getElementById('create-week');
+    
+    // Show custom week modal
+    createCustomWeekBtn.addEventListener('click', function() {
+        customWeekModal.style.display = 'block';
+        document.getElementById('week-title').value = '';
+        document.getElementById('week-description').value = '';
+    });
+    
+    // Close custom week modal
+    closeCustomWeek.addEventListener('click', function() {
+        customWeekModal.style.display = 'none';
+    });
+    
+    cancelCustomWeek.addEventListener('click', function() {
+        customWeekModal.style.display = 'none';
+    });
+    
+    // Create custom week
+    createWeekBtn.addEventListener('click', function() {
+        const title = document.getElementById('week-title').value.trim();
+        const description = document.getElementById('week-description').value.trim();
+        
+        if (title) {
+            createNewWeek(title, description);
+            customWeekModal.style.display = 'none';
+        } else {
+            alert('Please enter a title for your custom week.');
+        }
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === customWeekModal) {
+            customWeekModal.style.display = 'none';
+        }
+    });
+}
+
+// Create a new custom week
+function createNewWeek(title, description) {
+    // Generate a unique ID for the week
+    const weekId = 'week-custom-' + Date.now();
+    
+    // Create week tab
+    const weekTabs = document.querySelector('.week-tabs');
+    const newTab = document.createElement('div');
+    newTab.className = 'week-tab';
+    newTab.dataset.week = weekId;
+    newTab.textContent = title;
+    weekTabs.appendChild(newTab);
+    
+    // Create week content
+    const content = document.querySelector('.content');
+    const weekContent = document.createElement('div');
+    weekContent.className = 'week-content';
+    weekContent.id = weekId;
+    weekContent.style.display = 'none';
+    
+    weekContent.innerHTML = `
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <ul class="task-list">
+            <!-- Tasks will be added here -->
+        </ul>
+        <div class="add-task-container">
+            <input type="text" class="add-task-input" placeholder="Add a new task...">
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button>
+        </div>
+    `;
+    
+    content.appendChild(weekContent);
+    
+    // Add event listener for the new tab
+    newTab.addEventListener('click', function() {
+        // Hide all week content
+        document.querySelectorAll('.week-content').forEach(week => {
+            week.style.display = 'none';
+        });
+        
+        // Remove active class from all tabs
+        document.querySelectorAll('.week-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Show selected week content and activate tab
+        document.getElementById(weekId).style.display = 'block';
+        newTab.classList.add('active');
+    });
+    
+    // Add event listener for the add task button
+    const addTaskBtn = weekContent.querySelector('.btn');
+    const addTaskInput = weekContent.querySelector('.add-task-input');
+    
+    addTaskBtn.addEventListener('click', function() {
+        if (addTaskInput.value.trim()) {
+            addNewTask(weekId, addTaskInput.value.trim());
+            addTaskInput.value = '';
+        }
+    });
+    
+    addTaskInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && addTaskInput.value.trim()) {
+            addNewTask(weekId, addTaskInput.value.trim());
+            addTaskInput.value = '';
+        }
+    });
+    
+    // Initialize sortable for the new task list
+    const taskList = weekContent.querySelector('.task-list');
+    new Sortable(taskList, {
+        animation: 150,
+        handle: '.task-handle',
+        ghostClass: 'sortable-ghost',
+        onEnd: function() {
+            saveTasksToLocalStorage();
+        }
+    });
+    
+    // Activate the new tab
+    newTab.click();
+}
+
+// JavaScript for custom week creation and deletion
+
+// Event listeners for creating a custom week
+document.getElementById('create-week').addEventListener('click', function() {
+  const weekTitle = document.getElementById('week-title').value;
+  const weekDescription = document.getElementById('week-description').value;
+  
+  if (weekTitle.trim() === '') {
+    alert('Please enter a week title');
+    return;
+  }
+  
+  // Find the highest existing week number for all weeks (including custom weeks)
+  const allWeekTabs = Array.from(document.querySelectorAll('.week-tab'));
+  const highestWeek = Math.max(...allWeekTabs.map(tab => parseInt(tab.dataset.week) || 0));
+  
+  // New week will be the next number
+  const weekNumber = highestWeek + 1;
+  
+  // Create a new week tab
+  const weekTab = document.createElement('div');
+  weekTab.className = 'week-tab custom-week';
+  weekTab.dataset.week = weekNumber;
+  weekTab.textContent = `Week ${weekNumber}`;
+  weekTab.setAttribute('tabindex', '0'); // Make it focusable
+  
+  // Add tab to tabs container at the end
+  document.querySelector('.week-tabs').appendChild(weekTab);
+  
+  // Create week content
+  const weekContent = document.createElement('div');
+  weekContent.className = 'week-content custom-week-content';
+  weekContent.id = `week-${weekNumber}`;
+  
+  // Create week content HTML with delete button inside the content section
+  weekContent.innerHTML = `
+    <div class="week-header">
+      <h2>${weekTitle}</h2>
+      <button class="delete-week-content-btn" data-week="${weekNumber}">
+        <i class="fas fa-trash"></i> Delete This Week
+      </button>
+    </div>
+    <p>${weekDescription}</p>
+    <ul class="task-list">
+      <!-- Initial tasks can be empty to start -->
+      <li class="task-item add-task-item">
+        <button class="add-task-btn" data-week="${weekNumber}">
+          <i class="fas fa-plus"></i> Add Task
+        </button>
+      </li>
+    </ul>
+  `;
+  
+  // Add week content to the main content area
+  document.querySelector('.content').appendChild(weekContent);
+  
+  // Set up event listeners for new tab
+  weekTab.addEventListener('click', function() {
+    activateTab(this.dataset.week);
+  });
+  
+  // Add keyboard support for tabs
+  weekTab.addEventListener('keydown', function(e) {
+    // Enter or Space key
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activateTab(this.dataset.week);
+    }
+  });
+  
+  // Set up event listener for delete button in content section
+  weekContent.querySelector('.delete-week-content-btn').addEventListener('click', function() {
+    const weekToDelete = this.dataset.week;
+    deleteCustomWeek(weekToDelete);
+  });
+  
+  // Set up event listeners for the add task button
+  setupAddTaskListeners();
+  
+  // Close the modal
+  document.getElementById('custom-week-modal').style.display = 'none';
+  
+  // Clear form fields
+  document.getElementById('week-title').value = '';
+  document.getElementById('week-description').value = '';
+  
+  // Activate the new tab
+  activateTab(weekNumber);
+});
+
+// Function to delete a custom week
+function deleteCustomWeek(weekNumber) {
+  if (confirm(`Are you sure you want to delete Week ${weekNumber}?`)) {
+    // Remove tab and content
+    document.querySelector(`.week-tab[data-week="${weekNumber}"]`).remove();
+    document.getElementById(`week-${weekNumber}`).remove();
+    
+    // Reactivate the last available tab
+    const remainingTabs = document.querySelectorAll('.week-tab');
+    if (remainingTabs.length > 0) {
+      const lastTab = remainingTabs[remainingTabs.length - 1];
+      activateTab(lastTab.dataset.week);
+    }
+  }
+}
+
+// Function to activate a specific tab
+function activateTab(weekNumber) {
+  // Remove active class from all tabs and contents
+  document.querySelectorAll('.week-tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.week-content').forEach(content => content.classList.remove('active'));
+  
+  // Add active class to specified tab and content
+  const activeTab = document.querySelector(`.week-tab[data-week="${weekNumber}"]`);
+  activeTab.classList.add('active');
+  document.getElementById(`week-${weekNumber}`).classList.add('active');
+  
+  // Focus the active tab
+  activeTab.focus();
+}
+
+// Function to set up event listeners for add task buttons
+function setupAddTaskListeners() {
+  document.querySelectorAll('.add-task-btn').forEach(button => {
+    button.removeEventListener('click', addTaskHandler); // Remove previous listener to avoid duplicates
+    button.addEventListener('click', addTaskHandler);
+  });
+}
+
+// Handler for add task button
+function addTaskHandler() {
+  const weekNumber = this.dataset.week;
+  const taskList = this.closest('.task-list');
+  const taskItems = taskList.querySelectorAll('.task-item:not(.add-task-item)');
+  const newTaskNumber = taskItems.length + 1;
+  
+  // Create new task item
+  const newTaskItem = document.createElement('li');
+  newTaskItem.className = 'task-item';
+  
+  // Create task input
+  const taskInput = document.createElement('input');
+  taskInput.type = 'text';
+  taskInput.className = 'task-input';
+  taskInput.placeholder = 'Enter task description';
+  
+  // Create save button
+  const saveButton = document.createElement('button');
+  saveButton.className = 'save-task-btn';
+  saveButton.innerHTML = '<i class="fas fa-check"></i>';
+  saveButton.addEventListener('click', function() {
+    const taskText = taskInput.value.trim();
+    if (taskText === '') {
+      alert('Please enter a task description');
+      return;
+    }
+    
+    // Replace input with checkbox and text
+    newTaskItem.innerHTML = `
+      <input type="checkbox" class="task-checkbox" data-week="${weekNumber}" data-task="${newTaskNumber}">
+      <span class="task-text">${taskText}</span>
+      <button class="edit-task-btn" tabindex="0"><i class="fas fa-edit"></i></button>
+      <button class="delete-task-btn" tabindex="0"><i class="fas fa-trash"></i></button>
+    `;
+    
+    // Add event listener for edit task button
+    newTaskItem.querySelector('.edit-task-btn').addEventListener('click', function() {
+      const taskTextElement = this.previousElementSibling;
+      const currentText = taskTextElement.textContent;
+      
+      // Replace text with input
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.className = 'task-input';
+      editInput.value = currentText;
+      
+      const saveEditButton = document.createElement('button');
+      saveEditButton.className = 'save-task-btn';
+      saveEditButton.innerHTML = '<i class="fas fa-check"></i>';
+      
+      // Store original elements
+      const originalElements = Array.from(newTaskItem.children);
+      
+      // Clear task item and add edit controls
+      newTaskItem.innerHTML = '';
+      newTaskItem.appendChild(editInput);
+      newTaskItem.appendChild(saveEditButton);
+      
+      // Focus on input
+      editInput.focus();
+      
+      // Save edit
+      saveEditButton.addEventListener('click', function() {
+        const newText = editInput.value.trim();
+        if (newText === '') {
+          alert('Task description cannot be empty');
+          return;
+        }
+        
+        // Restore original elements
+        newTaskItem.innerHTML = '';
+        originalElements.forEach(el => {
+          if (el.classList.contains('task-text')) {
+            el.textContent = newText;
+          }
+          newTaskItem.appendChild(el);
+        });
+
+        // Re-attach event listeners since we replaced the elements
+        setupTaskButtonListeners(newTaskItem);
+      });
+    });
+    
+    // Add event listener for delete task button
+    newTaskItem.querySelector('.delete-task-btn').addEventListener('click', function() {
+      if (confirm('Are you sure you want to delete this task?')) {
+        this.closest('.task-item').remove();
+      }
+    });
+  });
+  
+  // Add elements to task item
+  newTaskItem.appendChild(taskInput);
+  newTaskItem.appendChild(saveButton);
+  
+  // Insert new task item before the add task button
+  const addTaskItem = taskList.querySelector('.add-task-item');
+  taskList.insertBefore(newTaskItem, addTaskItem);
+  
+  // Focus on the input
+  taskInput.focus();
+}
+
+// Helper function to set up task button listeners after DOM changes
+function setupTaskButtonListeners(taskItem) {
+  // Set up edit button
+  const editBtn = taskItem.querySelector('.edit-task-btn');
+  if (editBtn) {
+    editBtn.addEventListener('click', function() {
+      const taskTextElement = this.previousElementSibling;
+      const currentText = taskTextElement.textContent;
+      
+      // Replace text with input
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.className = 'task-input';
+      editInput.value = currentText;
+      
+      const saveEditButton = document.createElement('button');
+      saveEditButton.className = 'save-task-btn';
+      saveEditButton.innerHTML = '<i class="fas fa-check"></i>';
+      
+      // Store original elements
+      const originalElements = Array.from(taskItem.children);
+      
+      // Clear task item and add edit controls
+      taskItem.innerHTML = '';
+      taskItem.appendChild(editInput);
+      taskItem.appendChild(saveEditButton);
+      
+      // Focus on input
+      editInput.focus();
+      
+      // Save edit
+      saveEditButton.addEventListener('click', function() {
+        const newText = editInput.value.trim();
+        if (newText === '') {
+          alert('Task description cannot be empty');
+          return;
+        }
+        
+        // Restore original elements
+        taskItem.innerHTML = '';
+        originalElements.forEach(el => {
+          if (el.classList.contains('task-text')) {
+            el.textContent = newText;
+          }
+          taskItem.appendChild(el);
+        });
+        
+        // Re-attach event listeners
+        setupTaskButtonListeners(taskItem);
+      });
+    });
+    
+    // Add keyboard support for edit button
+    editBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  }
+  
+  // Set up delete button
+  const deleteBtn = taskItem.querySelector('.delete-task-btn');
+  if (deleteBtn) {
+    deleteBtn.addEventListener('click', function() {
+      if (confirm('Are you sure you want to delete this task?')) {
+        this.closest('.task-item').remove();
+      }
+    });
+    
+    // Add keyboard support for delete button
+    deleteBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  }
+}
+
+// Initialize tabindex for existing week tabs
+document.querySelectorAll('.week-tab').forEach(tab => {
+  tab.setAttribute('tabindex', '0'); // Make it focusable
+  
+  // Add click event listener
+  tab.addEventListener('click', function() {
+    activateTab(this.dataset.week);
+  });
+  
+  // Add keyboard support
+  tab.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activateTab(this.dataset.week);
+    }
+  });
+});
+
+// Event listener for "Create Custom Week" button
+document.getElementById('create-custom-week-btn').addEventListener('click', function() {
+  document.getElementById('custom-week-modal').style.display = 'block';
+});
+
+// Event listener for "Cancel" button in custom week modal
+document.getElementById('cancel-custom-week').addEventListener('click', function() {
+  document.getElementById('custom-week-modal').style.display = 'none';
+});
+
+// Event listener for close button in custom week modal
+document.getElementById('close-custom-week').addEventListener('click', function() {
+  document.getElementById('custom-week-modal').style.display = 'none';
+});
+
+// Setup existing task buttons
+document.querySelectorAll('.task-item:not(.add-task-item)').forEach(setupTaskButtonListeners);
+
+// Run setup once on page load
+setupAddTaskListeners();
+
 </script>
 </body>
 </html>
